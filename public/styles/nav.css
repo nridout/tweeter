@@ -1,13 +1,3 @@
-/* Be fixed to the top.
-Tip: add a bunch of empty or placeholder lines or paragraphs to the body so you can see
-how it behaves when you scroll vertically.
-Be 80 pixels in height
-Be the full width of the viewport.
-Have #00a087 as its default background colour.
-Have #e8fdff as its default font colour.
-The inner content should not be touching the viewport edge on the left/right edges and instead be spaced out 2ems on either side, as shown below.
-Tip: Specify left/right padding but leave top/bottom padding at 0px */
-
 #nav-bar {
   position: fixed;
   height: 80px;
