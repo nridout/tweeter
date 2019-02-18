@@ -11,6 +11,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -29,20 +30,14 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In blandit sem lorem, in placerat libero gravida quis. Vivamus
-      eu aliquet lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi quis leo
-      tellus. Duis imperdiet interdum nibh sed rutrum. Donec fringilla mollis lorem. Etiam sit amet nisi eu velit viverra
-      finibus. Phasellus et elementum orci. Sed at porttitor dolor. Ut mollis vel nunc ut congue. Morbi at nisl ligula. Donec
-      lobortis nunc ut pharetra accumsan. Donec lorem massa, lacinia in interdum in, consectetur sed ante. Donec in accumsan
-      magna. Donec eget rhoncus est. Nam a iaculis massa, ultrices iaculis lectus.</p>
-
-      <p>Phasellus ut sem nec justo finibus posuere non nec mauris. Sed tempus, est ac feugiat scelerisque, mi odio ultricies
-      mauris, nec tincidunt lectus metus rutrum mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada
-      fames ac turpis egestas. Quisque porta mollis enim eget consectetur. Integer a interdum justo. Integer ut est imperdiet,
-      aliquet sapien ut, congue orci. Etiam venenatis interdum dui, sed consectetur lectus. Quisque at eros maximus, eleifend
-      ante vel, malesuada nunc. Nulla lacinia, velit aliquet aliquam tempus, odio lectus euismod velit, id varius odio nulla
-      dignissim enim. Etiam pharetra bibendum gravida. Suspendisse iaculis viverra risus, eget maximus velit semper eu. Sed a
-      nulla non purus semper placerat vel malesuada eros.</p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>
+      </section>
     </main>
 
   </body>
