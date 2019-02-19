@@ -2,10 +2,8 @@
   background-color: #eee;
   border: 1px #ccc solid;
   border-radius: 5px;
-  margin-left: 2em;
-  margin-right: 2em;
-  padding-left: .5em;
-  padding-right: .5em;
+  margin: 0em 2em 0em 2em;
+  padding: 0em .5em 0em .5em;
 }
 
 .new-tweet h2 {
@@ -20,6 +18,10 @@
 .new-tweet form textarea {
   width: 100%;
   padding: 0.3em;
+}
+
+.new-tweet form input{
+  font-size: 22px;
 }
 
 .new-tweet form .counter {

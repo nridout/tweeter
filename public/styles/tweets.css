@@ -1,0 +1,43 @@
+.tweet {
+  background-color: #ffffff;
+  border: 1px #ccc solid;
+  border-radius: 5px;
+  margin: .5em 2em 0em 2em;
+}
+
+.tweet header{
+  border-radius: 5px 5px 0 0;
+  background-color: #f8f8f8;
+  color: #648a92;
+  height: 65px;
+  width: 100%;
+}
+
+.tweet header img {
+  float: left;
+  height: 50px;
+  margin: .5em;
+  border-radius: 5px;
+}
+
+.tweet header h2 {
+  float: left;
+  line-height: 0.2em;
+}
+
+.tweet .username {
+  float: right;
+  color: #aaaaaa;
+  padding: 1.3em .5em 0em .5em;
+  font-size: 0.8em;
+}
+
+.tweet .tweet-content {
+  margin: 2em 1em;
+}
+
+.tweet footer {
+  border-top: 1px #eeeeee solid;
+  padding: .8em .5em;
+  font-size: 0.7em;
+}
