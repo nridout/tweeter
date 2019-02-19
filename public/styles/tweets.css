@@ -1,14 +1,23 @@
+.tweet:hover {
+  border: 1px #969696 solid;
+}
+
 .tweet {
   background-color: #ffffff;
-  border: 1px #ccc solid;
+  border: 1px #d1d1d1 solid;
   border-radius: 5px;
-  margin: .5em 2em 0em 2em;
+  margin: .5em 2em .5em 2em;
+  overflow: hidden;
+}
+
+.tweet:hover > header {
+  opacity: 1;
 }
 
 .tweet header{
-  border-radius: 5px 5px 0 0;
-  background-color: #f8f8f8;
-  color: #648a92;
+  opacity: .7;
+  background-color: #eee;
+  color: #244751;
   height: 65px;
   width: 100%;
 }
@@ -27,7 +36,7 @@
 
 .tweet .username {
   float: right;
-  color: #aaaaaa;
+  color: #888888;
   padding: 1.3em .5em 0em .5em;
   font-size: 0.8em;
 }
@@ -40,4 +49,15 @@
   border-top: 1px #eeeeee solid;
   padding: .8em .5em;
   font-size: 0.7em;
+}
+
+.tweet:hover > footer .fa {
+  display: block;
+  color: #00a087;
+  float: right;
+  padding: .2em .3em;
+}
+
+.tweet footer .fa {
+  display: none;
 }
