@@ -22,26 +22,26 @@
   width: 100%;
 }
 
-.tweet header img {
+.tweet .avatar {
   float: left;
   height: 50px;
   margin: .5em;
   border-radius: 5px;
 }
 
-.tweet header h2 {
+.tweet .name {
   float: left;
   line-height: 0.2em;
 }
 
-.tweet .username {
+.tweet .handle {
   float: right;
   color: #888888;
   padding: 1.3em .5em 0em .5em;
   font-size: 0.8em;
 }
 
-.tweet .tweet-content {
+.tweet .content {
   margin: 2em 1em;
 }
 
