@@ -1,3 +1,6 @@
+/* Styling for Compose Tweet Box */
+
+/* Submission Box Styling */
 .new-tweet {
   background-color: #eee;
   border: 1px #ccc solid;
@@ -6,24 +9,29 @@
   padding: 0em .5em 0em .5em;
 }
 
+/* New Tweet Header */
 .new-tweet h2 {
   border-bottom: 1px #244751 solid;
   margin-top: 0.4em;
 }
 
+/* Tweet Submission Form Styling */
 .new-tweet form {
   padding-bottom: 0.5em;
 }
 
+/* Textarea for new Tweet content */
 .new-tweet form textarea {
   width: 100%;
   padding: 0.3em;
 }
 
+/* Tweet Button */
 .new-tweet form input{
   font-size: 22px;
 }
 
+/* Character Counter Styling */
 .new-tweet form .counter {
   float: right;
   padding: 0.5em;
@@ -31,6 +39,7 @@
   font-size: 0.8em;
 }
 
+/* Over Character Count */
 .overcount {
   color: #ff0000;
 }

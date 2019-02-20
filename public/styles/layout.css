@@ -11,7 +11,7 @@ html {
 }
 
 /*
- * Global layout stuff
+ * Global layout styling
  */
 
 body {
@@ -23,7 +23,7 @@ body {
 }
 
 /*
- * Additional CSS can be defined below or in other CSS files, as per instructions
+ * Additional CSS for main container
  */
 
 main {

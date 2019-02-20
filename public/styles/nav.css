@@ -1,3 +1,7 @@
+/* Navigation Bar Styling  */
+
+/* Nav-bar is fixed to the top
+& contains padding */
 #nav-bar {
   position: fixed;
   z-index:1;
@@ -8,15 +12,20 @@
   padding: 0em 2em 0 2em;
 }
 
+/* Tweeter Logo */
 #nav-bar .logo {
   width: 80px;
   height: 80px;
   float: left;
 }
 
+/* Company Name */
 #nav-bar .header {
   font-size: 2em;
   line-height: 2.5em;
   float: left;
   margin-left: 10px;
 }
+
+/* Compose Button */
+/* Compose button styling goes here */

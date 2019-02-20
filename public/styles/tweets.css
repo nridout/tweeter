@@ -1,3 +1,8 @@
+/* Individual Tweet Styling */
+
+/* Tweet Box Styling */
+
+/* Adds boarder on hover state */
 .tweet:hover {
   border: 1px #969696 solid;
 }
@@ -10,6 +15,9 @@
   overflow: hidden;
 }
 
+/* Tweet Header Styling */
+
+/* Increases opacity on hover */
 .tweet:hover > header {
   opacity: 1;
 }
@@ -22,6 +30,7 @@
   width: 100%;
 }
 
+/* Avatar */
 .tweet .avatar {
   float: left;
   height: 50px;
@@ -29,11 +38,13 @@
   border-radius: 5px;
 }
 
+/* Name */
 .tweet .name {
   float: left;
   line-height: 0.2em;
 }
 
+/* Handle */
 .tweet .handle {
   float: right;
   color: #888888;
@@ -41,9 +52,13 @@
   font-size: 0.8em;
 }
 
+/* Tweet Content Styling*/
+
 .tweet .content {
   margin: 2em 1em;
 }
+
+/* Tweet Footer Styling */
 
 .tweet footer {
   border-top: 1px #eeeeee solid;
@@ -51,6 +66,7 @@
   font-size: 0.7em;
 }
 
+/* Adds footer icons on hover */
 .tweet:hover > footer .fa {
   display: block;
   color: #00a087;
