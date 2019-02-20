@@ -1,20 +1,23 @@
+// **** CHARACTER COUNTER **** //
+
+// Captures input from the Compose Tweet textarea to update the Character Counter
+// Shows how many characters a user may still type (max allowable characters minus total typed)
+// When over the character limit, the counter number turns red and displays as a negative
+
 $(document).ready(function () {
 
-  // Updates the character count to reflect the number of characters in the textbox
-  $("textarea").keydown(function () {
+  $("textarea").on('input', function () {
 
-    let maxChar = 140;
-    let charCount = $(this).val().replace(/ /g, '').length;
-
-    if (charCount <= maxChar) {
-      maxChar = maxChar - charCount;
-      return $(this).siblings("span").text(maxChar).removeClass('overcount');
-
-    // If over the max amount, character count is red and negative
+    let charCount = 140 - $(this).val().length;
+    // If over the max amount, character count is red & negative
+    if (charCount < 0) {
+      $('span.counter').addClass('overcount');
+    // If under the max amount, character count is normal
     } else {
-      charCount = maxChar - charCount;
-      return $(this).siblings("span").text(charCount).addClass('overcount');
+      $('span.counter').removeClass('overcount');
     }
+    // Append the count to the page
+    $('span.counter').text(charCount)
 
   });
 
