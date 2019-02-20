@@ -1,5 +1,8 @@
+// *** TWEETER APP **** //
+
 $(document).ready(function () {
 
+  // Temporary hardcoded Tweet Database
   const data = [
     {
       "user": {
@@ -48,28 +51,23 @@ $(document).ready(function () {
     }
   ];
 
-
-
-
+  // Takes in an array of tweet objects and appends each one to the #tweets - container
   function renderTweets(tweets) {
 
-    // loops through tweets
     tweets.forEach(function(tweet) {
 
-      // calls createTweetElement for each tweet
       var $tweet = createTweetElement(tweet);
-
       // takes return value and appends it to the tweets container
       return $('#tweets-container').append($tweet);
 
     })
   }
 
-  // takes in a tweet object and is responsible for returning a tweet < article > element
-  // containing the entire HTML structure of the tweet.
+  // Takes in a tweet object and returns a tweet < article > element
+  // containing the entire HTML structure of the tweet
   function createTweetElement(tweet) {
 
-    // var for each class
+    // Define all of the tweet elements for the Tweet article
     let $tweet = $("<article>").addClass("tweet");
     let $header = $("<header>");
     let $avatar = $("<img>").addClass("avatar").attr("src", tweet.user.avatars.small);
@@ -83,7 +81,7 @@ $(document).ready(function () {
     let $retweetIcon = $("<span>").addClass("fa fa-retweet");
     let $flagIcon = $("<span>").addClass("fa fa-flag");
 
-    // append items to the dom
+    // Append Elements to the Tweet article
     $tweet.append($header);
     $header.append($avatar);
     $header.append($name);
@@ -95,12 +93,16 @@ $(document).ready(function () {
     $footer.append($retweetIcon);
     $footer.append($flagIcon);
 
-    // return formatted tweet
+    // Return formatted Tweet article
     return $tweet;
   }
 
+  // Render the tweet data from the Tweet Databse, creating a new Tweet article for each Tweet
   renderTweets(data);
 
+  // Fetches newly created tweets from the /tweets page
+  function loadTweets(tweet) {
+  }
 
 });
 
