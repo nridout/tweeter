@@ -6,12 +6,11 @@ $(document).ready(function () {
   function renderTweets(tweets) {
 
     tweets.forEach(function(tweet) {
-
       var $tweet = createTweetElement(tweet);
       // takes return value and appends it to the tweets container
       return $('#tweets-container').append($tweet);
-
     })
+
   }
 
   // Takes in a tweet object and returns a tweet < article > element
@@ -48,6 +47,36 @@ $(document).ready(function () {
     return $tweet;
   }
 
+
+  let form = $('#post-tweet');
+
+  // Posts tweet data to server
+  form.submit(function (event) {
+
+    event.preventDefault();
+
+    let tweetText = $('textarea').val()
+
+    if (!tweetText) {
+      alert("Tweet content is empty! Please enter a tweet.");
+    } else if (tweetText.length > 140) {
+      alert("Tweet text is longer than 140 characters! Please shorted your tweet.");
+    } else {
+      $.ajax({
+        type: "POST",
+        url: form.attr('action'),
+        data: form.serialize(), // serializes the form's elements.
+        success: function () {
+          console.log('Submission was successful.');
+        },
+        error: function () {
+          console.log('An error occurred.');
+        },
+      });
+    }
+
+  })
+
   // Makes a request to Tweet page and receives the array of tweets as JSON
   function loadTweets() {
 
@@ -72,3 +101,6 @@ $(document).ready(function () {
 
 // End of Document Ready
 });
+
+
+
