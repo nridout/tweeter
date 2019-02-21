@@ -1,8 +1,6 @@
-/* Individual Tweet Styling */
+/* Tweet Container */
 
-/* Tweet Box Styling */
-
-/* Adds boarder on hover state */
+/* Adds boarder to box on hover state */
 .tweet:hover {
   border: 1px #969696 solid;
 }
@@ -15,7 +13,7 @@
   overflow: hidden;
 }
 
-/* Tweet Header Styling */
+/* Tweet Header */
 
 /* Increases opacity on hover */
 .tweet:hover > header {
@@ -52,10 +50,10 @@
   font-size: 0.8em;
 }
 
-/* Tweet Content Styling*/
-
+/* Content */
 .tweet .content {
   margin: 2em 1em;
+  word-break: break-all;
 }
 
 /* Tweet Footer Styling */

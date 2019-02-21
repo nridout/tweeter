@@ -16,12 +16,12 @@
   margin-top: 0.4em;
 }
 
-/* Tweet Submission Form Styling */
+/* Tweet Submission Form */
 .new-tweet form {
   padding-bottom: 0.5em;
 }
 
-/* Textarea for new Tweet content */
+/* Tweet Textarea */
 .new-tweet form textarea {
   width: 100%;
   padding: 0.3em;
@@ -53,12 +53,4 @@
   margin: 0em 0em 0.75em 0em;
   padding: .75em;
   display: none;
-}
-
-.new-tweet .error-message .fa-exclamation-triangle {
-  padding-right: .5em;
-}
-
-textarea .error {
-  border: 1px solid #f00;
 }

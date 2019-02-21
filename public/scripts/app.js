@@ -94,18 +94,16 @@ $(document).ready(function () {
 
     if (!tweetText) {
       // display the error content
-      $('.error-message').slideToggle("fast");
+      $('.error-message').slideDown("fast");
       // add the error text
       $('.error-message').text("Nothing to Tweet! Please enter some text.");
-      event.stopPropagation();
     } else if (tweetText.length > 140) {
       // display the error content
-      $('.error-message').slideToggle("fast");
+      $('.error-message').slideDown("fast");
       // add the error text
       $('.error-message').text("Tweet text is longer than 140 characters! Please shorted your tweet.");
-      event.stopPropagation();
     } else {
-      $('.error-message').slideToggle("fast");
+      $('.error-message').slideUp("fast");
       // Post submission to server
       $.ajax({
         type: "POST",
@@ -145,10 +143,10 @@ $(document).ready(function () {
   $("#compose").click(function () {
 
     if ($(".new-tweet").is(":hidden")) {
-      $(".new-tweet").slideToggle("fast");
+      $(".new-tweet").slideDown("fast");
       $('textarea').focus();
     } else {
-      $(".new-tweet").slideToggle("fast");
+      $(".new-tweet").slideUp("fast");
     }
 
   });
