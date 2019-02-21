@@ -1,15 +1,10 @@
-// *** TWEETER APP **** //
-
 $(document).ready(function () {
 
-  // --------------------------- TWEETS DISPLAY CREATION --------------------------- //
+  // --------------------------- TWEETS CONTAINER DISPLAY --------------------------- //
 
-  // Loads the initial page tweets
-  loadTweets();
-
-  // Makes a request to Tweet page and receives the array of tweets as JSON
+  // Makes a request to Tweet page
+  // Receives the array of tweet objects
   function loadTweets() {
-
     $(function () {
       $.ajax({
         type: "GET",
@@ -22,10 +17,10 @@ $(document).ready(function () {
         },
       });
     });
-
   }
 
-  // Takes in an array of tweet objects and appends each one to the #tweets - container
+  // Takes in an array of tweet articles
+  // Appends each tweet to the Tweets container
   function renderTweets(tweets) {
     // Clears the Tweet container of previous tweets
     $('#tweets-container').empty();
@@ -34,11 +29,11 @@ $(document).ready(function () {
       var $tweet = createTweetElement(tweet);
       // takes return value and appends it to the tweets container
       return $('#tweets-container').append($tweet);
-    })
+    });
 
   }
 
-  // Takes in a tweet object and returns a tweet < article > element
+  // Takes in a tweet object and returns a tweet < article >
   // containing the entire HTML structure of the tweet
   function createTweetElement(tweet) {
 
@@ -72,49 +67,40 @@ $(document).ready(function () {
     return $tweet;
   }
 
+  // Loads the initial page tweets
+  loadTweets();
+
  // --------------------------- NEW TWEET SUBMISSION --------------------------- //
 
-  const form = $('#post-tweet');
-
-  // Allows "Enter" key to submit tweet
-  $('textarea').keydown(function (e) {
-    var key = e.which;
-    if (key == 13) {
-      // As ASCII code for ENTER key is "13"
-      form.submit(); // Submit form code
-    }
-  });
+  const $form = $('#post-tweet');
+  const $tweetText = $('textarea');
+  const $errorBox = $('.error-message');
 
   // Posts tweet data to server
-  form.submit(function (event) {
+  $form.submit(function (event) {
 
     event.preventDefault();
 
-    let tweetText = $('textarea').val()
-
-    if (!tweetText) {
-      // display the error content
-      $('.error-message').slideDown("fast");
-      // add the error text
-      $('.error-message').text("Nothing to Tweet! Please enter some text.");
-    } else if (tweetText.length > 140) {
-      // display the error content
-      $('.error-message').slideDown("fast");
-      // add the error text
-      $('.error-message').text("Tweet text is longer than 140 characters! Please shorted your tweet.");
+    // Textarea validation - if no tweet text
+    if (!$tweetText.val()) {
+      showError("Nothing to Tweet! Please enter some text.");
+    // Textarea validation - if tweet is longer than 140 characters
+    } else if ($tweetText.val().length > 140) {
+      showError("Tweet text is longer than 140 characters! Please shorten your tweet.");
     } else {
-      $('.error-message').slideUp("fast");
+      // Remove error box if submission is valid
+      $errorBox.slideUp("fast");
       // Post submission to server
       $.ajax({
         type: "POST",
-        url: form.attr('action'),
-        data: form.serialize(), // serializes the form's elements.
+        url: $form.attr('action'),
+        data: $form.serialize(), // serializes the form's elements.
         success: function () {
           console.log('Submission was successful.');
           // Reload tweets
           loadTweets();
           // Clear the textarea
-          $('textarea').val("");
+          $tweetText.val("");
           // Reset the counter
           $('span.counter').text(140);
         },
@@ -123,36 +109,46 @@ $(document).ready(function () {
         },
       });
     }
-
   })
 
-  // function displayError() {
-  //   // display the error box
-  //   $('.error-message').slideToggle("fast");
-  //   // add the textbox red border ??
-  //   // $('textarea').addClass("error");
-  // }
+  // Allows "Enter" key to submit tweet
+  $tweetText.keydown(function (e) {
+    var key = e.which;
+    if (key == 13) {
+      // As ASCII code for ENTER key is "13"
+      $form.submit(); // Submit form code
+    }
+  });
+
+  // Error box messages
+  function showError(message) {
+    // display the error content
+    $errorBox.slideDown("fast");
+    // add the error text
+    $errorBox.text(message);
+  }
 
   // ------------------------ COMPOSE TOGGLE BUTTON -------------------------- //
 
+  const $newTweetBox = $(".new-tweet")
+
   // Hide New Tweet box on load
-  $(".new-tweet").hide();
+  $newTweetBox.hide();
 
   // Toggle Compose button - slides up and down
   // Focuses on text area when visible
   $("#compose").click(function () {
 
-    if ($(".new-tweet").is(":hidden")) {
-      $(".new-tweet").slideDown("fast");
-      $('textarea').focus();
+    if ($newTweetBox.is(":hidden")) {
+      $newTweetBox.slideDown("fast");
+      $tweetText.focus();
     } else {
-      $(".new-tweet").slideUp("fast");
+      $newTweetBox.slideUp("fast");
     }
 
   });
 
   // --------------------------------------------------------------------------//
-
 
 
 // End of Document Ready
