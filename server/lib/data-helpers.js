@@ -1,6 +1,6 @@
 "use strict";
 
-// Defines helper functions for saving and getting tweets, using the database `db`
+// Defines helper functions for saving and getting tweets, using the mongoDB
 module.exports = function makeDataHelpers(db) {
   return {
 
@@ -19,7 +19,6 @@ module.exports = function makeDataHelpers(db) {
         }
         callback(null, tweets.sort(sortNewestFirst));
       });
-
     }
 
   };

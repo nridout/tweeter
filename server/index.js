@@ -19,7 +19,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     throw err;
   }
 
-  // We have a connection to the "tweeter" db, starting here.
+  // Connected to the "tweeter" db:
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
   // The `data-helpers` module provides an interface to the database of tweets.

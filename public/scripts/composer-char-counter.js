@@ -6,18 +6,20 @@
 
 $(document).ready(function () {
 
+  const $counter = $('span.counter')
+
   $("textarea").on('input', function () {
 
-    let charCount = 140 - $(this).val().length;
+    let charCount = 140 - $(this).val().length
     // If over the max amount, character count is red & negative
     if (charCount < 0) {
-      $('span.counter').addClass('overcount');
+      $counter.addClass('overcount')
     // If under the max amount, character count is normal
     } else {
-      $('span.counter').removeClass('overcount');
+      $counter.removeClass('overcount')
     }
     // Append the count to the page
-    $('span.counter').text(charCount)
+    $counter.text(charCount)
 
   });
 
