@@ -30,13 +30,13 @@
 /* Compose Button */
 
 /* hover class */
-#nav-bar #compose input:hover {
+#nav-bar #compose:hover {
   color:  #000000;
   border: 1px #000000 solid;
   background-color:  #eee;
 }
 
-#nav-bar #compose input {
+#nav-bar #compose {
   float: right;
   height: 60px;
   margin: 10px 0 10px 0;

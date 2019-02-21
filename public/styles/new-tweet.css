@@ -44,3 +44,21 @@
 .overcount {
   color: #ff0000;
 }
+
+/* Error Messages */
+.new-tweet .error-message {
+  background-color: #ffc7c7;
+  border-radius: 5px;
+  color: #696969;
+  margin: 0em 0em 0.75em 0em;
+  padding: .75em;
+  display: none;
+}
+
+.new-tweet .error-message .fa-exclamation-triangle {
+  padding-right: .5em;
+}
+
+textarea .error {
+  border: 1px solid #f00;
+}
