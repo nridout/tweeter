@@ -4,7 +4,9 @@ $(document).ready(function () {
 
   // Takes in an array of tweet objects and appends each one to the #tweets - container
   function renderTweets(tweets) {
-
+    // Clears the Tweet container of previous tweets
+    $('#tweets-container').empty();
+    // Append tweets to tweet container
     tweets.forEach(function(tweet) {
       var $tweet = createTweetElement(tweet);
       // takes return value and appends it to the tweets container
@@ -23,13 +25,15 @@ $(document).ready(function () {
     let $avatar = $("<img>").addClass("avatar").attr("src", tweet.user.avatars.small);
     let $name = $("<h2>").addClass("name").append(tweet.user.name);
     let $username = $("<span>").addClass("handle").append(tweet.user.handle);
-    let $content = $("<div>").addClass("content").append(tweet.content.text);
+    let $content = $("<div>").addClass("content").text(tweet.content.text);
     let $footer = $("<footer>");
-    let created = moment(tweet.created_at).startOf("hour").fromNow();
+    let created = moment(tweet.created_at).fromNow();
     let $daysOld = $("<span>").addClass("created-at").append(created);
     let $heartIcon = $("<span>").addClass("fa fa-heart");
     let $retweetIcon = $("<span>").addClass("fa fa-retweet");
     let $flagIcon = $("<span>").addClass("fa fa-flag");
+
+
 
     // Append Elements to the Tweet article
     $tweet.append($header);
@@ -48,9 +52,9 @@ $(document).ready(function () {
   }
 
 
+  // Posts tweet data to server
   let form = $('#post-tweet');
 
-  // Posts tweet data to server
   form.submit(function (event) {
 
     event.preventDefault();
@@ -68,6 +72,12 @@ $(document).ready(function () {
         data: form.serialize(), // serializes the form's elements.
         success: function () {
           console.log('Submission was successful.');
+          // Reload tweets
+          loadTweets();
+          // Clear the textarea
+          $('textarea').val("");
+          // Reset the counter
+          $('span.counter').text(140);
         },
         error: function () {
           console.log('An error occurred.');
@@ -95,12 +105,24 @@ $(document).ready(function () {
 
   }
 
-  // Fetches tweets from /tweets
+  // Loads the initial page tweets
   loadTweets();
+
+
+  // toggles compose button
+  $("#compose").click(function () {
+
+    if ($(".new-tweet").is(":hidden")) {
+      $(".new-tweet").slideDown("fast");
+      $('textarea').focus();
+    } else {
+      $(".new-tweet").hide();
+    }
+
+  });
+
+
 
 
 // End of Document Ready
 });
-
-
-

@@ -28,4 +28,21 @@
 }
 
 /* Compose Button */
-/* Compose button styling goes here */
+
+/* hover class */
+#nav-bar #compose input:hover {
+  color:  #000000;
+  border: 1px #000000 solid;
+  background-color:  #eee;
+}
+
+#nav-bar #compose input {
+  float: right;
+  height: 60px;
+  margin: 10px 0 10px 0;
+  font-size: 22px;
+  color:  #00a087;
+  border: 1px #000000 solid;
+  border-radius: 5px;
+  background-color:  #e8fdff;
+}
